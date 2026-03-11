@@ -1,0 +1,11 @@
+{
+  "${modID}:TemplatePotion": {
+    "NAME": "Template Potion",
+    "DESCRIPTIONS": [
+      "Potion Text 1",
+      "Potion Text 2",
+      "Tooltip",
+      "Tooltip Desc"
+    ]
+  }
+}

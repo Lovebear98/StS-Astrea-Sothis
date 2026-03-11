@@ -1,0 +1,11 @@
+{
+  "${modID}:AnodeDummy": {
+    "MOVES": [
+      "..."
+    ],
+    "NAME": "Practice Dummy",
+    "DIALOG": [
+      "..."
+    ]
+  }
+}

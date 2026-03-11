@@ -1,0 +1,79 @@
+{
+  "${modID}:HourglassMasteryPower": {
+    "NAME": "Hourglass Mastery",
+    "DESCRIPTIONS": [
+      "The next card you play returns to your hand and costs #b1 less this turn."
+    ]
+  },
+  "${modID}:ReliefPower": {
+    "NAME": "Relief",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b",
+      " #yBlock then halve this.",
+      "At the end of its turn, takes #b",
+      " damage then halve this."
+    ]
+  },
+  "${modID}:HourglassMiragePower": {
+    "NAME": "Hourglass Mirage",
+    "DESCRIPTIONS": [
+      "When your #ySoul #yHeat reaches its cap, #yExtinguish: Gain #yHourglass #yMastery. NL ( #b",
+      " of #b",
+      " left. )"
+    ]
+  },
+  "${modID}:DistortionHieroglyphPower": {
+    "NAME": "Distortion Hieroglyph",
+    "DESCRIPTIONS": [
+      "Your #ySoul #yHeat will be treated as #pexactly #p10 #b",
+      " time",
+      "s",
+      " this turn."
+    ]
+  },
+  "${modID}:FlammableChakramPower": {
+    "NAME": "Flammable Chakram",
+    "DESCRIPTIONS": [
+      "Whenever you deal unblocked damage, apply #b",
+      " #yRelief."
+    ]
+  },
+  "${modID}:ConcentrationPower": {
+    "NAME": "Concentration",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #ySoul #yHeat."
+    ]
+  },
+  "${modID}:FireBreathPower": {
+    "NAME": "Fire Breath",
+    "DESCRIPTIONS": [
+      "While #ySoul #yHeat is #b10 or higher, increases Attack damage by #b",
+      "."
+    ]
+  },
+  "${modID}:RegalKhephreshPower": {
+    "NAME": "Regal Khephresh",
+    "DESCRIPTIONS": [
+      "#yRelief on enemies now triggers at the start of their turn."
+    ]
+  },
+  "${modID}:SandsOfTimePower": {
+    "NAME": "Sands of Time",
+    "DESCRIPTIONS": [
+      "Draw #b",
+      " card",
+      "s",
+      " when you gain #yHourglass #yMastery."
+    ]
+  },
+  "${modID}:InnerWarmthPower": {
+    "NAME": "Inner Warmth",
+    "DESCRIPTIONS": [
+      "Prevent the next #b",
+      " times",
+      "s",
+      " your #ySoul #yHeat would reset or be #yExtinguished."
+    ]
+  }
+}

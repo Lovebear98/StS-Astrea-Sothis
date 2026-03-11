@@ -1,0 +1,83 @@
+
+Seek.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+SeekAnim/Walk1
+  rotate: false
+  xy: 332, 1
+  size: 65, 95
+  orig: 65, 95
+  offset: 0, 0
+  index: -1
+SeekAnim/Walk2
+  rotate: false
+  xy: 332, 98
+  size: 65, 90
+  orig: 65, 90
+  offset: 0, 0
+  index: -1
+SeekAnim/Walk3
+  rotate: false
+  xy: 265, 103
+  size: 65, 95
+  orig: 65, 95
+  offset: 0, 0
+  index: -1
+SeekAnim/Walk4
+  rotate: false
+  xy: 265, 1
+  size: 65, 100
+  orig: 65, 100
+  offset: 0, 0
+  index: -1
+SeekAnim/Bubble
+  rotate: false
+  xy: 1, 1
+  size: 90, 124
+  orig: 90, 124
+  offset: 0, 0
+  index: -1
+SeekAnim/Name
+  rotate: false
+  xy: 332, 190
+  size: 44, 16
+  orig: 44, 16
+  offset: 0, 0
+  index: -1
+SeekAnim/AttackBubble
+  rotate: false
+  xy: 93, 87
+  size: 84, 84
+  orig: 84, 84
+  offset: 0, 0
+  index: -1
+SeekAnim/BlockBubble
+  rotate: false
+  xy: 93, 1
+  size: 84, 84
+  orig: 84, 84
+  offset: 0, 0
+  index: -1
+SeekAnim/HurtBubble
+  rotate: false
+  xy: 179, 87
+  size: 84, 84
+  orig: 84, 84
+  offset: 0, 0
+  index: -1
+SeekAnim/IdleBubble
+  rotate: false
+  xy: 179, 1
+  size: 84, 84
+  orig: 84, 84
+  offset: 0, 0
+  index: -1
+SeekAnim/BubbleBorder
+  rotate: false
+  xy: 1, 127
+  size: 90, 90
+  orig: 90, 90
+  offset: 0, 0
+  index: -1

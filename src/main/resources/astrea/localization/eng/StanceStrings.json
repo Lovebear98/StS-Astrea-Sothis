@@ -1,0 +1,20 @@
+{
+  "${modID}:Kirby": {
+    "NAME": "Kirby",
+    "DESCRIPTION": [
+      "You have no ability!"
+    ]
+  },
+  "${modID}:Sword": {
+    "NAME": "Sword",
+    "DESCRIPTION": [
+      "Your first #yStrike each turn is free. #yStrikes won't consume #yVigor until the end of the turn."
+    ]
+  },
+  "${modID}:x": {
+    "NAME": "x",
+    "DESCRIPTION": [
+      "x"
+    ]
+  }
+}

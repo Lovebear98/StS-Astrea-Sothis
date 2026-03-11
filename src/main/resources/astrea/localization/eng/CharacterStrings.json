@@ -1,0 +1,14 @@
+{
+  "${modID}:SothisCharacter": {
+    "NAMES": [
+      "The Outcast",
+      "the outcast"
+    ],
+    "TEXT": [
+      "Sothis of Behenia is but one of many Oracles, wandering NL the Spire in search of each other.",
+      "You dilate time.",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ outcast ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~",
+      "#y~TRIUMPH.~ #y~Wonder.~ #r@Regret.@ NL NL The Elders have caught onto your scheming to acquire The Astrarium. They may not have been able to stop you, but you know they'll banish you. NL All you can do is hope this magic you've found was worth the cost."
+    ]
+  }
+}

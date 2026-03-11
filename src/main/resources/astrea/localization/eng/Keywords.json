@@ -1,0 +1,68 @@
+[
+  {
+    "ID" : "Relief",
+    "PROPER_NAME": "Relief",
+    "NAMES": [
+      "Relief",
+      "relief"
+    ],
+    "DESCRIPTION": "Gain #bX #yBlock at the end of your turn, then halve #yRelief. Enemies take damage instead."
+  },
+  {
+    "ID" : "HourglassMastery",
+    "PROPER_NAME": "Hourglass Mastery",
+    "NAMES": [
+      "Hourglass Mastery",
+      "Hourglass_Mastery",
+      "hourglass_mastery"
+    ],
+    "DESCRIPTION": "The next card you play returns to your hand and costs #b1 less this turn instead of being discarded."
+  },
+  {
+    "ID" : "SoulHeat",
+    "PROPER_NAME": "Soul Heat",
+    "NAMES": [
+      "Soul Heat",
+      "Soul_Heat",
+      "soul_heat",
+      "heat"
+    ],
+    "DESCRIPTION": "#ySoul #yHeat increases when cards are played, and resets at the start of the turn."
+  },
+  {
+    "ID" : "Extinguish",
+    "PROPER_NAME": "Extinguish",
+    "NAMES": [
+      "Extinguish",
+      "extinguish",
+      "extinguished",
+      "extinguishes",
+      "extinguishing"
+    ],
+    "DESCRIPTION": "Reset your #ySoul #yHeat to #b0."
+  },
+  {
+    "ID" : "Kindle",
+    "PROPER_NAME": "Kindle",
+    "NAMES": [
+      "Kindle",
+      "kindle",
+      "kindled",
+      "kindles",
+      "kindling"
+    ],
+    "DESCRIPTION": "Requires #ySoul #yHeat of #bX or more."
+  },
+  {
+    "ID" : "Afflict",
+    "PROPER_NAME": "Afflict",
+    "NAMES": [
+      "Afflict",
+      "afflict",
+      "afflicted",
+      "affliction",
+      "afflicts"
+    ],
+    "DESCRIPTION": "Take #bX damage. If you have enough #yRelief, reduce it to prevent the damage."
+  }
+]

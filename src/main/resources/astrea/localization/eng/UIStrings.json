@@ -1,0 +1,46 @@
+{
+  "${modID}:WizConfig": {
+    "TEXT": [
+      "This is a template text."
+    ],
+    "EXTRA_TEXT": [
+      "0"
+    ]
+  },
+
+
+  "${modID}:WizUI": {
+    "TEXT": [
+      " [E]"
+    ],
+    "EXTRA_TEXT": [
+      "Return",
+      "Discard",
+      "Keep",
+      "Copy",
+      "Add",
+      "Modify",
+      "Recover",
+      "My #rSoul #rHeat is too low!"
+      ]
+  },
+
+
+
+  "${modID}:SoulHeatUI": {
+    "TEXT": [
+      "Soul Heat",
+      "#ySoul #yHeat increases for each card played, up to #p",
+      ", and resets at the start of the turn."
+    ],
+    "EXTRA_TEXT": [
+      "Return",
+      "Discard",
+      "Keep",
+      "Copy",
+      "Add",
+      "Modify",
+      "Recover"
+    ]
+  }
+}

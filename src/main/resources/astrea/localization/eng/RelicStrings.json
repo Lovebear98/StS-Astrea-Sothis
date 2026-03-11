@@ -1,0 +1,10 @@
+{
+  "${modID}:BehenianHourglass": {
+    "NAME": "Behenian Hourglass",
+    "FLAVOR": "Sothis was exiled from Behenia for unlocking this Astrarium against the Elders' will.",
+    "DESCRIPTIONS": [
+      "At the start of your second turn, gain #b",
+      " #y${modID}:Hourglass_Mastery."
+    ]
+  }
+}
