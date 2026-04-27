@@ -1,6 +1,7 @@
 package astrea.powers.custompowers;
 
 import astrea.powers.BasePower;
+import astrea.relics.customrelics.RegalKhepresh;
 import astrea.util.CustomActions.CustomGameEffects.vfx.ReliefFireEffect;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
@@ -59,22 +60,26 @@ public class ReliefPower extends BasePower implements CloneablePowerInterface {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        this.flash();
-
-        if(isPlayer){
+        if(!isPlayer && !p().hasRelic(RegalKhepresh.ID)){
+            this.flash();
             triggered(false);
-        }else{
-            if(!p().hasPower(RegalKhephreshPower.POWER_ID)){
-                triggered(false);
-            }
         }
     }
 
+    @Override
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        super.atEndOfTurnPreEndTurnCards(isPlayer);
+
+        if(isPlayer){
+            this.flash();
+            triggered(false);
+        }
+    }
 
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
-        if(type == PowerType.DEBUFF && p().hasPower(RegalKhephreshPower.POWER_ID)){
+        if(type == PowerType.DEBUFF && p().hasRelic(RegalKhepresh.ID)){
             triggered(false);
         }
     }
@@ -86,7 +91,13 @@ public class ReliefPower extends BasePower implements CloneablePowerInterface {
             addToBot(new DamageAction(owner, new DamageInfo(source, amount, DamageInfo.DamageType.THORNS), PURIFY));
         }
         if(!keepCount){
-            addToTop(new ReducePowerAction(owner, owner, this, Math.max(amount/2, 1)));
+            if(owner.hasPower(BrightEnhancementPower.POWER_ID)){
+                AbstractPower pow = owner.getPower(BrightEnhancementPower.POWER_ID);
+                addToTop(new ReducePowerAction(owner, owner, pow, 1));
+                pow.flash();
+            }else{
+                addToTop(new ReducePowerAction(owner, owner, this, Math.max(amount/2, 1)));
+            }
         }
     }
 

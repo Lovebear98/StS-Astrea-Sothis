@@ -4,12 +4,15 @@ import astrea.powers.custompowers.DistortionHieroglyphPower;
 import astrea.powers.custompowers.HourglassMiragePower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.cards.CardGroup;
 
 import static astrea.util.managers.SoundManager.*;
 import static astrea.util.managers.Wiz.isInCombat;
 import static astrea.util.managers.Wiz.p;
 
 public class MechanicManager {
+
+    public static CardGroup SuspendPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public static int SoulHeat = 0;
     public static final int BaseSoulHeatCap = 10;

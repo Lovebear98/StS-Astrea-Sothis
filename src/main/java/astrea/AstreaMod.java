@@ -1,15 +1,20 @@
 package astrea;
 
 import astrea.cards.BaseCard;
+import astrea.cards.skill.ShieldBoomerang;
 import astrea.character.SothisCharacter;
+import astrea.powers.custompowers.ChantingPower;
+import astrea.powers.custompowers.HourglassMasteryPower;
 import astrea.relics.BaseRelic;
 import astrea.ui.SoulHeatUI;
-import astrea.util.CustomActions.GainSoulHeatAction;
-import astrea.util.CustomActions.ResetSoulHeatAction;
+import astrea.ui.SuspendPanel;
+import astrea.util.CustomActions.*;
+import astrea.util.CustomTags;
 import astrea.util.GeneralUtils;
 import astrea.util.KeywordInfo;
 import astrea.util.TextureLoader;
 import astrea.util.managers.SetupManager;
+import astrea.util.targeting.SothisSelfOrEnemyTargeting;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModPanel;
@@ -20,16 +25,20 @@ import com.badlogic.gdx.backends.lwjgl.LwjglFileHandle;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.evacipated.cardcrawl.mod.stslib.patches.CustomTargeting;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -42,8 +51,7 @@ import java.util.*;
 
 import static astrea.util.managers.ConfigManager.*;
 import static astrea.util.managers.SetupManager.*;
-import static astrea.util.managers.Wiz.PostCombat;
-import static astrea.util.managers.Wiz.PreCombat;
+import static astrea.util.managers.Wiz.*;
 
 @SpireInitializer
 public class AstreaMod implements
@@ -57,7 +65,8 @@ public class AstreaMod implements
         OnStartBattleSubscriber,
         PostBattleSubscriber,
         OnPlayerTurnStartPostDrawSubscriber,
-        OnCardUseSubscriber
+        OnCardUseSubscriber,
+        PostPowerApplySubscriber
 {
 
     public static ModInfo info;
@@ -65,14 +74,28 @@ public class AstreaMod implements
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID);
-
     public static String makeID(String id) {
         return modID + ":" + id;
     }
 
 
 
+    /// Variables to detect for any cross-mod content ///
+    public static final boolean multiCompat;
+    static{
+        multiCompat = Loader.isModLoaded("spireTogether");
+
+        logger.info("Checking for [Together in Spire] to enable ally targeting fixes...");
+        if(multiCompat){
+            logger.info("Found [Together in Spire] - Ally targeting is enabled!");
+        }else{
+            logger.info("[Together in Spire] not found - Ally targeting disabled.");
+        }
+    }
+
+
     public static SoulHeatUI HeatPanel;
+    public static SuspendPanel SuspendPileButton;
 
     public static void initialize() {
         new AstreaMod();
@@ -98,6 +121,8 @@ public class AstreaMod implements
     @Override
     public void receivePostInitialize() {
         HeatPanel = new SoulHeatUI();
+        SuspendPileButton = new SuspendPanel();
+        CustomTargeting.registerCustomTargeting(SothisSelfOrEnemyTargeting.RELIEF_TARGET, new SothisSelfOrEnemyTargeting());
 
         /// Add any events we want to add
         AddEvents();
@@ -343,17 +368,38 @@ public class AstreaMod implements
 
     /// We made this method for a patch to allow generic end-of-turn effects
     public static void receiveOnPlayerTurnEnd(){
-
+        AbstractDungeon.actionManager.addToBottom(new ReleaseSuspendAction());
     }
 
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
         AbstractDungeon.actionManager.addToTop(new GainSoulHeatAction());
+        if(abstractCard.hasTag(CustomTags.Chanting)){
+            AbstractDungeon.actionManager.addToBottom(new GainChantingAction());
+        }else if(abstractCard.type == AbstractCard.CardType.ATTACK){
+            if(p().hasPower(ChantingPower.POWER_ID)){
+                AbstractDungeon.actionManager.addToBottom(new LoseChantingAction());
+            }
+        }
     }
 
     @Override
     public void receiveOnPlayerTurnStartPostDraw() {
         AbstractDungeon.actionManager.addToTop(new ResetSoulHeatAction());
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+        if(power.ID.equals(HourglassMasteryPower.POWER_ID)){
+            if(abstractCreature1 == p() && !p().discardPile.isEmpty()){
+                for(AbstractCard c: p().discardPile.group){
+                    if(c.cardID.equals(ShieldBoomerang.ID)){
+                        AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(c));
+                    }
+                }
+
+            }
+        }
     }
 }

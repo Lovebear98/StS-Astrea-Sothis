@@ -8,10 +8,12 @@ import astrea.relics.customrelics.BehenianHourglass;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,6 +23,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -120,18 +123,17 @@ public class SothisCharacter extends CustomPlayer {
 
 
     //Actual character class code below this point
-
+    /// Idle
+    /// Attack
+    /// Skill
+    /// ReceiveDamage
     public SothisCharacter() {
         super(getNames()[0], Meta.SOTHIS_CHARACTER,
                 new SothisOrb(), //Energy Orb
-                new AbstractAnimation() {
-                    @Override
-                    public Type type() {
-                        return Type.NONE;
-                    }
-                });
+                new SpineAnimation(characterPath("animation/ESothis.atlas"), characterPath("animation/ESothis.json"), 2.5f)); //Animation
+        AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
 
-        initializeClass(characterPath("character.png"),
+        initializeClass(null,
                 SHOULDER_2,
                 SHOULDER_1,
                 CORPSE,
@@ -174,7 +176,6 @@ public class SothisCharacter extends CustomPlayer {
         retVal.add(SonataOfHealing.ID);
         retVal.add(MinorRelief.ID);
 
-        retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);

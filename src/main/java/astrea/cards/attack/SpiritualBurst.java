@@ -4,6 +4,8 @@ import astrea.cards.AbstractAstreaCard;
 import astrea.character.SothisCharacter;
 import astrea.patches.interfaces.KindleInterface;
 import astrea.util.CardStats;
+import astrea.util.CustomActions.CheckedSoulHeatAction;
+import astrea.util.CustomActions.ResetSoulHeatAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -16,7 +18,7 @@ import static astrea.util.managers.MechanicManager.getSoulHeat;
 import static astrea.util.managers.Wiz.NoKindleText;
 
 
-public class SpiritualBurst extends AbstractAstreaCard implements KindleInterface {
+public class SpiritualBurst extends AbstractAstreaCard {
     public static final String[] EXTENDED_DESCRIPTION = CardStrings.getMockCardString().EXTENDED_DESCRIPTION;
 
     public static final String ID = makeID(SpiritualBurst.class.getSimpleName());
@@ -28,8 +30,8 @@ public class SpiritualBurst extends AbstractAstreaCard implements KindleInterfac
             0
     );
 
-    private static final int DAMAGE = 15;
-    private static final int UPG_DAMAGE = 10;
+    private static final int DAMAGE = 20;
+    private static final int UPG_DAMAGE = 5;
     private static final int BLOCK = 0;
     private static final int UPG_BLOCK = 0;
     private static final int MAGIC = 0;
@@ -45,33 +47,27 @@ public class SpiritualBurst extends AbstractAstreaCard implements KindleInterfac
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
 
+        setSelfRetain(false, true);
+
         this.isMultiDamage = true;
         
         verifyBackground();
     }
 
-    @Override
-    public boolean canKindle() {
-        return getSoulHeat() >= secondMagic;
-    }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if(getSoulHeat() < secondMagic){
-            this.cantUseMessage = NoKindleText();
-            return false;
-        }
-        return super.canUse(p, m);
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, PURIFY));
+        if(getSoulHeat() >= secondMagic){
+            addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, PURIFY));
+        }
+        addToBot(new CheckedSoulHeatAction());
+        addToBot(new ResetSoulHeatAction());
     }
 
     @Override
     public void triggerOnGlowCheck() {
         this.glowColor = BLUE_BORDER_GLOW_COLOR;
-        if(canKindle()){
+        if(getSoulHeat() >= secondMagic){
             glowColor = GOLD_BORDER_GLOW_COLOR;
         }
     }

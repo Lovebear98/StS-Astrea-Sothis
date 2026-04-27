@@ -6,6 +6,7 @@ import astrea.util.CardStats;
 import astrea.util.CustomActions.CheckedSoulHeatAction;
 import astrea.util.CustomActions.ResetSoulHeatAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static astrea.patches.visual.AttackEffectEnum.PURIFY;
 import static astrea.util.managers.MechanicManager.getSoulHeat;
 
 
@@ -28,8 +30,8 @@ public class Sandstorm extends AbstractAstreaCard {
             1
     );
 
-    private static final int DAMAGE = 4;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 5;
+    private static final int UPG_DAMAGE = 3;
     private static final int BLOCK = 0;
     private static final int UPG_BLOCK = 0;
     private static final int MAGIC = 0;
@@ -45,17 +47,19 @@ public class Sandstorm extends AbstractAstreaCard {
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
 
+        isMultiDamage = true;
+
         verifyBackground();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageRandomEnemyAction(new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, PURIFY));
         if(getSoulHeat() >= secondMagic){
             int Hits = getSoulHeat() / secondMagic;
 
             for(int e = Hits; e > 0; e -= 1){
-                addToBot(new DamageRandomEnemyAction(new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, PURIFY));
             }
         }
         addToBot(new ResetSoulHeatAction());

@@ -4,7 +4,7 @@
     "DESCRIPTION": "Cardsmods can use card strings to pull from to enjoy the benefits that provides.",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "${modID}:x. NL "
+      "${modID}:Chanting. NL "
     ]
   },
 
@@ -54,14 +54,6 @@
       " NL ${modID}:Extinguish: Deal !D! damage !M! times."
     ]
   },
-  "${modID}:GlassDaggers": {
-    "NAME": "Glass Daggers",
-    "DESCRIPTION": "{@@}Deal !D! damage. NL Add !M! *Dagger{!M!|1=|@=s} to your hand.",
-    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Add !M! *Dagger{!M!|1=|@=s} to your hand.",
-    "EXTENDED_DESCRIPTION": [
-      ""
-    ]
-  },
   "${modID}:Sandshaping": {
     "NAME": "Sandshaping",
     "DESCRIPTION": "Even ${modID}:Soul_Heat: Deal !D! damage. NL Odd ${modID}:Soul_Heat: Gain !B! Block.",
@@ -88,24 +80,24 @@
   },
   "${modID}:SunRay": {
     "NAME": "Sun Ray",
-    "DESCRIPTION": "${modID}:Kindle !${modID}:M2!. NL Deal !D! damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "${modID}:Kindle !${modID}:M2!. NL Deal !D! damage. NL Exhaust.",
+    "DESCRIPTION": "${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. ${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
   "${modID}:Sandstorm": {
     "NAME": "Sandstorm",
-    "DESCRIPTION": "Randomly deal !D! damage. NL ${modID}:Extinguish: Randomly deal !D! damage for each !${modID}:M2! ${modID}:Soul_Heat.",
-    "UPGRADE_DESCRIPTION": "Randomly deal !D! damage. NL ${modID}:Extinguish: Randomly deal !D! damage for each !${modID}:M2! ${modID}:Soul_Heat.",
+    "DESCRIPTION": "Randomly deal !D! damage to ALL enemies. NL ${modID }:Extinguish: Deal damage again for each !${modID}:M2! ${modID}:Soul_Heat.",
+    "UPGRADE_DESCRIPTION": "Randomly deal !D! damage to ALL enemies. NL ${modID}:Extinguish: Deal damage again for each !${modID}:M2! ${modID}:Soul_Heat.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
   "${modID}:SpiritualBurst": {
     "NAME": "Spiritual Burst",
-    "DESCRIPTION": "${modID}:Kindle !${modID}:M2!. NL Deal !D! damage to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "${modID}:Kindle !${modID}:M2!. NL Deal !D! damage to ALL enemies. NL Exhaust.",
+    "DESCRIPTION": "${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL ${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage to ALL enemies. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -128,20 +120,113 @@
   },
   "${modID}:FieryProjection": {
     "NAME": "Fiery Projection",
-    "DESCRIPTION": "{@@}Deal !D! damage. NL Play the top {!M!|1=|@=!M! }card{!M!|1=|@=s} of your draw pile.",
-    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Play the top {!M!|1=|@=!M! }card{!M!|1=|@=s} of your draw pile.",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Play the top {!M!|1=|@=!M! }card{!M!|1=|@=s} of your draw pile and ${modID}:Suspend {!M!|1=it|@=them}.",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Play the top {!M!|1=|@=!M! }card{!M!|1=|@=s} of your draw pile and ${modID}:Suspend {!M!|1=it|@=them}.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
-  "${modID}:GhastlyFire": {
-    "NAME": "Ghastly Fire",
+  "${modID}:DownfallStrike": {
+    "NAME": "Downfall Strike",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Relief. NL ${modID}:Afflict !M!.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Relief. NL ${modID}:Afflict !M!.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
+  "${modID}:SoulStigma": {
+    "NAME": "Soul Stigma",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Relief.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:CleansingConflagration": {
+    "NAME": "Cleanse Conflagration",
+    "DESCRIPTION": "Deal !D! damage and apply !M! ${modID}:Relief to ALL enemies. NL Gain !M! ${modID}:Relief for each enemy hit.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! ${modID}:Relief to ALL enemies. NL Gain !M! ${modID}:Relief for each enemy hit.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:DrawRisky": {
+    "NAME": "Draw Risky",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Draw !M! card. If you draw an Attack, gain {!${modID}:M2!|repeat= [E]|>4= !${modID}:M2! [E]} . NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Draw !M! card. If you draw an Attack, gain {!${modID}:M2!|repeat= [E]|>4= !${modID}:M2! [E]} . NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Frenzy": {
+    "NAME": "Frenzy",
+    "DESCRIPTION": "{@@}Randomly deal !D! damage !M! time{!M!|1=|@=s}.",
+    "UPGRADE_DESCRIPTION": "{@@}Randomly deal !D! damage !M! time{!M!|1=|@=s}.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:EclipseBlast": {
+    "NAME": "Eclipse Blast",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Gain !M! ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Gain !M! ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:BloodySolstice": {
+    "NAME": "Bloody Solstice",
+    "DESCRIPTION": "${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "${modID}:Extinguish. NL If ${modID}:Soul_Heat is !${modID}:M2! or higher, deal !D! damage. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:ShamanicDomination": {
+    "NAME": "Shamanic Domination",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Gain {!M!|repeat= [E]|>4= !M! [E]} .",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage. NL Gain {!M!|repeat= [E]|>4= !M! [E]} .",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:SharkStrike": {
+    "NAME": "Shark Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you are attacked this turn, deal !D! damage back.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Whenever you are attacked this turn, deal !D! damage back.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:GhastlyFire": {
+    "NAME": "Ghastly Fire",
+    "DESCRIPTION": "Deal damage equal to your ${modID}:Relief. NL Trigger your ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your ${modID}:Relief. NL Trigger your ${modID}:Relief.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL Trigger your ${modID}:Relief."
+    ]
+  },
+  "${modID}:FullMoonRay": {
+    "NAME": "Full Moon Ray",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:GlassDaggers": {
+    "NAME": "Glass Daggers",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL Apply !M! Weak.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+
+
+
+
+
 
 
 
@@ -157,8 +242,8 @@
   },
   "${modID}:DistortionHieroglyph": {
     "NAME": "Distortion Glyph",
-    "DESCRIPTION": "{@@}Your ${modID}:Soul_Heat is treated as if it were *exactly 10 {!M!|1=once|@=!M! times} this turn.",
-    "UPGRADE_DESCRIPTION": "{@@}Your ${modID}:Soul_Heat is treated as if it were *exactly 10 {!M!|1=once|@=!M! times} this turn.",
+    "DESCRIPTION": "{@@}!M! time{!M!|1=|@=s} this turn, your ${modID}:Soul_Heat is treated as if it were *exactly 10.",
+    "UPGRADE_DESCRIPTION": "{@@}!M! time{!M!|1=|@=s} this turn, your ${modID}:Soul_Heat is treated as if it were *exactly 10.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -175,7 +260,7 @@
   "${modID}:SelflessIgnite": {
     "NAME": "Selfless Ignite",
     "DESCRIPTION": "Trigger ANYONE'S ${modID}:Relief without reducing it. NL ${modID}:Afflict !${modID}:M2!.",
-    "UPGRADE_DESCRIPTION": "Trigger ANYONE'S ${modID}:Relief without reducing it. NL ${modID}:Afflict !${modID}:M2!.",
+    "UPGRADE_DESCRIPTION": "Trigger ANYONE'S ${modID}:Relief without reducing it.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -199,15 +284,15 @@
   "${modID}:DuneSurfing": {
     "NAME": "Dune Surfing",
     "DESCRIPTION": "${modID}:Extinguish: Draw a card for each !${modID}:M2! ${modID}:Soul_Heat.",
-    "UPGRADE_DESCRIPTION": "${modID}:Extinguish: Draw a card for each !${modID}:M2! ${modID}:Soul_Heat.",
+    "UPGRADE_DESCRIPTION": "Retain. NL ${modID}:Extinguish: Draw a card for each !${modID}:M2! ${modID}:Soul_Heat.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
   "${modID}:BehenianHowl": {
     "NAME": "Behenian Howl",
-    "DESCRIPTION": "{@@}Gain {!M!|repeat= [E]|>4= !M! [E]} . NL If ${modID}:Soul_Heat is at least !${modID}:M2!, gain ${modID}:Hourglass_Mastery.",
-    "UPGRADE_DESCRIPTION": "{@@}Gain {!M!|repeat= [E]|>4= !M! [E]} . NL If ${modID}:Soul_Heat is at least !${modID}:M2!, gain ${modID}:Hourglass_Mastery.",
+    "DESCRIPTION": "{@@}Gain {!M!|repeat= [E]|>4= !M! [E]} . NL If ${modID}:Soul_Heat is at least !${modID}:M2!, gain ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Gain {!M!|repeat= [E]|>4= !M! [E]} . NL If ${modID}:Soul_Heat is at least !${modID}:M2!, gain ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -240,6 +325,166 @@
     "NAME": "Syphon Hourglass",
     "DESCRIPTION": "Remove ANYONE'S ${modID}:Relief to gain the same amount of Block.",
     "UPGRADE_DESCRIPTION": "Remove ANYONE'S ${modID}:Relief to gain the same amount of Block.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Draw": {
+    "NAME": "Draw",
+    "DESCRIPTION": "{@@}Draw !${modID}:M2! card{!${modID}:M2!|1=|@=s}. NL Gain !M! ${modID}:Soul_Heat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !${modID}:M2! card{!${modID}:M2!|1=|@=s}. NL Gain !M! ${modID}:Soul_Heat. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:DesertProtection": {
+    "NAME": "Desert Protection",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${modID}:Soul_Heat.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! ${modID}:Soul_Heat.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Fortify": {
+    "NAME": "Fortify",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! ${modID}:Hourglass_Mastery. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:SunnyFlares": {
+    "NAME": "Sunny Flares",
+    "DESCRIPTION": "Randomly apply !M! ${modID}:Relief to ANYONE !${modID}:M2!X times.",
+    "UPGRADE_DESCRIPTION": "Randomly apply !M! ${modID}:Relief to ANYONE !${modID}:M2!X times.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:AstralMantra": {
+    "NAME": "Astral Mantra",
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL If ${modID}:Soul_Heat is at least !${modID}:M2!, add !M! card{!M!|1=|@=s} from your draw pile to your hand instead. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL If ${modID}:Soul_Heat is at least !${modID}:M2!, add !M! card{!M!|1=|@=s} from your draw pile to your hand instead. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:SolarLullaby": {
+    "NAME": "Solar Lullaby",
+    "DESCRIPTION": "Trigger ALL ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "Trigger ALL ${modID}:Relief without reducing it.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:PrecisionMantra": {
+    "NAME": "Precision Mantra",
+    "DESCRIPTION": "{@@}${modID}:Relief isn't reduced when triggered for !M! turn{!M!|1=|@=s}. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Retain. NL ${modID}:Relief isn't reduced when triggered for !M! turn{!M!|1=|@=s}. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:DrawBalanced": {
+    "NAME": "Draw Balanced",
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL Randomly discard !${modID}:M2! card{!${modID}:M2!|1=|@=s}. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL Randomly discard !${modID}:M2! card{!${modID}:M2!|1=|@=s}. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:AstralRebound": {
+    "NAME": "Astral Rebound",
+    "DESCRIPTION": "{@@}${modID}:Suspend !M! card{!M!|1=|@=s} in your hand to gain [E] equal to {!M!|1=its|@=their combined} cost. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}${modID}:Suspend !M! card{!M!|1=|@=s} in your hand to gain [E] equal to {!M!|1=its|@=their combined} cost. NL Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Copycat": {
+    "NAME": "Copycat",
+    "DESCRIPTION": "{@@}Make !M! cop{!M!|1=y|@=irs} of a card. NL Purge.",
+    "UPGRADE_DESCRIPTION": "{@@}Make !M! cop{!M!|1=y|@=irs} of a card. NL Purge.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:ShieldBoomerang": {
+    "NAME": "Shield Boomerang",
+    "DESCRIPTION": "Gain !B! Block. NL When gaining ${modID}:Hourglass_Mastery, return this card from the discard pile to your hand. NL ${modID}:Timeless.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL When gaining ${modID}:Hourglass_Mastery, return this card from the discard pile to your hand. NL ${modID}:Timeless.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:EnemyAffliction": {
+    "NAME": "Enemy Affliction",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL ${modID}:Afflict !${modID}:M2!. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable. NL ${modID}:Afflict !${modID}:M2!. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Invoke": {
+    "NAME": "Invoke",
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL ${modID}:Timeless.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|1=|@=s}. NL ${modID}:Timeless.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Incorruptible": {
+    "NAME": "Incorruptible",
+    "DESCRIPTION": "Gain !B! Block. NL Costs 0 while your ${modID}:Soul_Heat is !${modID}:M2! or more. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Costs 0 while your ${modID}:Soul_Heat is !${modID}:M2! or more. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Inventive": {
+    "NAME": "Inventive",
+    "DESCRIPTION": "{@@}Reduce the cost of !M! card{!M!|1=|@=s} by !${modID}:M2! this turn. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Reduce the cost of !M! card{!M!|1=|@=s} by !${modID}:M2! this turn. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:ScarletSigil": {
+    "NAME": "Scarlet Sigil",
+    "DESCRIPTION": "Trigger ANYONE's ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "Trigger ANYONE's ${modID}:Relief.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Timeless": {
+    "NAME": "Timeless",
+    "DESCRIPTION": "Gain X ${modID}:Hourglass_Mastery. NL Exhaust. ${modID}:Timeless.",
+    "UPGRADE_DESCRIPTION": "Gain X ${modID}:Hourglass_Mastery. NL ${modID}:Suspend. ${modID}:Timeless.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:BrightEnhancement": {
+    "NAME": "Bright Enhancement",
+    "DESCRIPTION": "{@@}Increase ANYONE'S ${modID}:Relief by !${modID}:M2!%. NL The next {!M!|1=time|@=!M! times} their *Relief is triggered, it doesn't decrease. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "{@@}Increase ANYONE'S ${modID}:Relief by !${modID}:M2!%. NL The next {!M!|1=time|@=!M! times} their *Relief is triggered, it doesn't decrease. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Ascend": {
+    "NAME": "Ascend",
+    "DESCRIPTION": "This turn, your next X cards with a cost of 2 or higher are free to play. NL ${modID}:Suspend.",
+    "UPGRADE_DESCRIPTION": "This turn, your next X+!M! cards with a cost of 2 or higher are free to play. NL ${modID}:Suspend.",
+    "EXTENDED_DESCRIPTION": [
+      "This turn, your next X+!M! cards with a cost of 2 or higher are free to play. NL ${modID}:Suspend."
+    ]
+  },
+  "${modID}:vff": {
+    "NAME": "Chanting",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "${modID}:Kindle. NL 2: Scry !M! card(s). NL 4: Draw a card. NL 10: Gain [E] . NL ${modID}:Suspend.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -283,16 +528,16 @@
   },
   "${modID}:FireBreath": {
     "NAME": "Fire Breath",
-    "DESCRIPTION": "Deal !M! more Attack damage while ${modID}:Soul_Heat is 10 or higher.",
-    "UPGRADE_DESCRIPTION": "Deal !M! more Attack damage while ${modID}:Soul_Heat is 10 or higher.",
+    "DESCRIPTION": "Deal !M! more Attack damage while ${modID}:Soul_Heat is at least 10.",
+    "UPGRADE_DESCRIPTION": "Deal !M! more Attack damage while ${modID}:Soul_Heat is at least 10.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   },
-  "${modID}:RegalKhephresh": {
-    "NAME": "Regal Khephresh",
-    "DESCRIPTION": "${modID}:Relief on enemies now triggers at the start of their turn.",
-    "UPGRADE_DESCRIPTION": "${modID}:Relief on enemies now triggers at the start of their turn. NL Apply !M! ${modID}:Relief to EVERYONE.",
+  "${modID}:AreaRelief": {
+    "NAME": "Area Relief",
+    "DESCRIPTION": "Whenever you apply ${modID}:Relief to an enemy, gain !M! ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "Whenever you apply ${modID}:Relief to an enemy, gain !M! ${modID}:Relief.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
@@ -313,18 +558,126 @@
       ""
     ]
   },
+  "${modID}:DrawSafe": {
+    "NAME": "Draw Safe",
+    "DESCRIPTION": "{@@}At the start of your turn, draw !M! card{!M!|1=|@=s}.",
+    "UPGRADE_DESCRIPTION": "{@@}At the start of your turn, draw !M! card{!M!|1=|@=s}.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:Expertise": {
+    "NAME": "Expertise",
+    "DESCRIPTION": "{@@}!M! time{!M!|1=|@=s} each turn, your ${modID}:Soul_Heat will be treated as exactly 10.",
+    "UPGRADE_DESCRIPTION": "{@@}Innate. NL !M! time{!M!|1=|@=s} each turn, your ${modID}:Soul_Heat will be treated as exactly 10.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:AreaBarrier": {
+    "NAME": "Area Barrier",
+    "DESCRIPTION": "Whenever you are attacked, apply !M! ${modID}:Relief back.",
+    "UPGRADE_DESCRIPTION": "Whenever you are attacked, apply !M! ${modID}:Relief back.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:EclipseGaze": {
+    "NAME": "Eclipse Gaze",
+    "DESCRIPTION": "When you play a card that costs 2 or more, EVERYONE gains !M! ${modID}:Relief.",
+    "UPGRADE_DESCRIPTION": "When you play a card that costs 2 or more, EVERYONE gains !M! ${modID}:Relief.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
 
 
 
 
 
 
-  "${modID}:Dagger": {
-    "NAME": "Dagger",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust.",
+
+
+
+  "${modID}:Chanting": {
+    "NAME": "Chanting",
+    "DESCRIPTION": "Ethereal. ${modID}:Chanting. NL Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. ${modID}:Chanting. NL Deal !D! damage. NL Gain !M! ${modID}:Chanting. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:ForgeChanting": {
+    "NAME": "Forge Chanting",
+    "DESCRIPTION": "{@@}Choose !M! *Non-Chanting Attack{!M!|1=|@=s} and give {!M!|1=it|@=them} ${modID}:Chanting. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Choose !M! *Non-Chanting Attack{!M!|1=|@=s} and give {!M!|1=it|@=them} ${modID}:Chanting. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:QuicksandDance": {
+    "NAME": "Quicksand Dance",
+    "DESCRIPTION": "At the start of your turn, gain !M! ${modID}:Chanting.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, gain !M! ${modID}:Chanting.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:AreaChanting": {
+    "NAME": "Area Chanting",
+    "DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:SearingRitual": {
+    "NAME": "Searing Ritual",
+    "DESCRIPTION": "{@@}${modID}:Chanting. NL Randomly deal !D! damage !M! time{!M!|1=|@=s}. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}${modID}:Chanting. NL Randomly deal !D! damage !M! time{!M!|1=|@=s}. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:ChainedChanting": {
+    "NAME": "Chained Chanting",
+    "DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage. NL Add !M! *Chanting to your hand.",
+    "UPGRADE_DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage. NL Add !M! *Chanting to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:RewindChanting": {
+    "NAME": "Rewind Chanting",
+    "DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "${modID}:Chanting. NL Deal !D! damage.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:AuspiciousChanting": {
+    "NAME": "Auspicious Chanting",
+    "DESCRIPTION": "{@@}${modID}:Chanting. NL Deal !D! damage. NL Draw !M! card{!M!|1=|@=s} next turn.",
+    "UPGRADE_DESCRIPTION": "{@@}${modID}:Chanting. NL Deal !D! damage. NL Draw !M! card{!M!|1=|@=s} next turn.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:WickedChanting": {
+    "NAME": "Wicked Chanting",
+    "DESCRIPTION": "{@@}${modID}:Chanting. NL Deal !D! damage. NL Apply !M! Vulnerable. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}${modID}:Chanting. NL Deal !D! damage. NL Apply !M! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      ""
+    ]
+  },
+  "${modID}:BlazingChanting": {
+    "NAME": "Blazing Chanting",
+    "DESCRIPTION": "{@@}${modID}:Chanting. NL Gain !B! Block. NL Gain !M! *Chanting.",
+    "UPGRADE_DESCRIPTION": "{@@}${modID}:Chanting. NL Gain !B! Block. NL Gain !M! *Chanting.",
     "EXTENDED_DESCRIPTION": [
       ""
     ]
   }
+
 }

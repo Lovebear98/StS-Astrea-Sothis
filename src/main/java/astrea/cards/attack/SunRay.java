@@ -4,6 +4,8 @@ import astrea.cards.AbstractAstreaCard;
 import astrea.character.SothisCharacter;
 import astrea.patches.interfaces.KindleInterface;
 import astrea.util.CardStats;
+import astrea.util.CustomActions.CheckedSoulHeatAction;
+import astrea.util.CustomActions.ResetSoulHeatAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -25,11 +27,11 @@ public class SunRay extends AbstractAstreaCard implements KindleInterface {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            0
     );
 
-    private static final int DAMAGE = 20;
-    private static final int UPG_DAMAGE = 10;
+    private static final int DAMAGE = 26;
+    private static final int UPG_DAMAGE = 4;
     private static final int BLOCK = 0;
     private static final int UPG_BLOCK = 0;
     private static final int MAGIC = 0;
@@ -44,6 +46,8 @@ public class SunRay extends AbstractAstreaCard implements KindleInterface {
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
+
+        setSelfRetain(false, true);
 
         verifyBackground();
     }
@@ -64,6 +68,8 @@ public class SunRay extends AbstractAstreaCard implements KindleInterface {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), PURIFY));
+        addToBot(new CheckedSoulHeatAction());
+        addToBot(new ResetSoulHeatAction());
     }
 
     @Override

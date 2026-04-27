@@ -3,8 +3,11 @@ package astrea.util.managers;
 
 import astrea.character.SothisCharacter;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -13,10 +16,14 @@ import com.megacrit.cardcrawl.monsters.exordium.ApologySlime;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.CardFlashVfx;
 
+import java.util.ArrayList;
+
 import static astrea.AstreaMod.makeID;
+import static astrea.character.SothisOrb.SizeCorrect;
 import static astrea.util.managers.ConfigManager.CorruptionEnabled;
 import static astrea.util.managers.ConfigManager.EnableEyeCandy;
 import static astrea.util.managers.MechanicManager.SoulHeat;
+import static astrea.util.managers.MechanicManager.SuspendPile;
 
 
 public class Wiz {
@@ -57,14 +64,14 @@ public class Wiz {
     public static String AddText(){
         return uiStrings.EXTRA_TEXT[4];
     }
-    public static String ModifyText(){
-        return uiStrings.EXTRA_TEXT[5];
-    }
+    public static String ModifyText(){return uiStrings.EXTRA_TEXT[5];}
     public static String RecoverText(){
         return uiStrings.EXTRA_TEXT[6];
     }
-    public static String NoKindleText(){
-        return uiStrings.EXTRA_TEXT[7];
+    public static String NoKindleText(){return uiStrings.EXTRA_TEXT[7];}
+    public static String SuspendText(){return uiStrings.EXTRA_TEXT[8];}
+    public static String ExhaustText(){
+        return uiStrings.EXTRA_TEXT[9];
     }
 
     /// Template for getting UI strings quickly
@@ -136,6 +143,7 @@ public class Wiz {
     ///  Anything that happens both before AND after combat
     private static void PrePostCombat() {
         SoulHeat = 0;
+        SuspendPile.clear();
     }
 
     /// Method for generally flashing cards in hand
@@ -162,7 +170,7 @@ public class Wiz {
 
 
 
-    public static boolean corruptionEnabled(){
+    public static boolean heatEnabled(){
         if(p() != null){
             if(p() instanceof SothisCharacter){
                 return true;
@@ -170,5 +178,38 @@ public class Wiz {
             return CorruptionEnabled;
         }
         return false;
+    }
+
+    public static ArrayList<AbstractCreature> allCharacters(){
+        ArrayList<AbstractCreature> tmp = new ArrayList<>(AbstractDungeon.getMonsters().monsters);
+        tmp. add(p());
+        return tmp;
+    }
+
+
+    public static float textToFloat(String s){
+        float newnum;
+        try {
+            newnum = Integer.parseInt(s);
+        }
+        catch (NumberFormatException e) {
+            newnum = 0;
+        }
+        return newnum/100f;
+    }
+    public static float textToFloat(int i) {
+        float f = i;
+        return f/100f;
+    }
+
+
+    public static void renderCenteredScaled(SpriteBatch sb, Texture texture, float x, float y, float rotation) {
+        sb.draw(texture, x, y, (texture.getWidth() * SizeCorrect * 0.5f), (texture.getHeight() * SizeCorrect * 0.5f), texture.getWidth()*SizeCorrect, texture.getHeight()*SizeCorrect, 1f, 1f, rotation, 0, 0, texture.getWidth(), texture.getHeight(), false, false);
+    }
+    public static void renderCenteredScaled(SpriteBatch sb, Texture texture, float x, float y, float scale, float rotation) {
+        sb.draw(texture, x, y, (texture.getWidth() * SizeCorrect * 0.5f), (texture.getHeight() * SizeCorrect * 0.5f), texture.getWidth()*SizeCorrect, texture.getHeight()*SizeCorrect, scale, scale, rotation, 0, 0, texture.getWidth(), texture.getHeight(), false, false);
+    }
+    public static float timeScale(float currenttime, float maxtime){
+        return ((maxtime - currenttime) / maxtime);
     }
 }

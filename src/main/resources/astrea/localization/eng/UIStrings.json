@@ -21,7 +21,9 @@
       "Add",
       "Modify",
       "Recover",
-      "My #rSoul #rHeat is too low!"
+      "My #rSoul #rHeat is too low!",
+      "Suspend",
+      "Exhaust"
       ]
   },
 
@@ -41,6 +43,15 @@
       "Add",
       "Modify",
       "Recover"
+    ]
+  },
+  "${modID}:SuspendPanel": {
+    "TEXT": [
+      "Suspend Pile",
+      "#ySuspended cards are returned to the discard pile at the end of the turn."
+    ],
+    "EXTRA_TEXT": [
+      "These cards will enter the discard pile at the end of the turn."
     ]
   }
 }

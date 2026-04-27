@@ -22,7 +22,7 @@ public class AbradingTouch extends AbstractAstreaCard {
     private static final CardStats info = new CardStats(
             SothisCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.RARE,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             1
     );

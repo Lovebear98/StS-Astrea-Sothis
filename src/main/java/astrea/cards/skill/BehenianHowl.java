@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static astrea.util.CustomTags.Suspend;
 import static astrea.util.managers.MechanicManager.getSoulHeat;
 
 
@@ -44,7 +45,7 @@ public class BehenianHowl extends AbstractAstreaCard {
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
 
-        setExhaust(true);
+        tags.add(Suspend);
 
         verifyBackground();
     }

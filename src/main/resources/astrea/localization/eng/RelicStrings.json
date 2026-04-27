@@ -6,5 +6,47 @@
       "At the start of your second turn, gain #b",
       " #y${modID}:Hourglass_Mastery."
     ]
+  },
+  "${modID}:Upgrade": {
+    "NAME": "Corrupted Hourglass",
+    "FLAVOR": "It resonates with the heart...",
+    "DESCRIPTIONS": [
+      "At the start of your first #b",
+      " turns, gain #y${modID}:Hourglass_Mastery."
+    ]
+  },
+  "${modID}:ResonantAnkh": {
+    "NAME": "Resonant Ankh",
+    "FLAVOR": "...And it hummed in time with their prayer, vibrating with a life all its own.",
+    "DESCRIPTIONS": [
+      "At the start of the turn, add #b",
+      " #yUpgraded #y${modID}:Chanting to your hand."
+    ]
+  },
+  "${modID}:RegalKhepresh": {
+    "NAME": "Regal Khepresh",
+    "FLAVOR": "Upon his head he wore the mark of piety, and upon his tongue spoke the spirits.",
+    "DESCRIPTIONS": [
+      "#y${modID}:Relief on enemies now triggers at the start of their turn."
+    ]
+  },
+  "${modID}:HeartSystemRelic": {
+    "NAME": "Behenian Hourglass",
+    "FLAVOR": "Sothis was exiled from Behenia for unlocking this Astrarium against the Elders' will.",
+    "DESCRIPTIONS": [
+      "At the start of your second turn, gain #b",
+      " #y${modID}:Hourglass_Mastery."
+    ]
+  },
+  "${modID}:ExtinguishRelic": {
+    "NAME": "Behenian Hourglass",
+    "FLAVOR": "Sothis was exiled from Behenia for unlocking this Astrarium against the Elders' will.",
+    "DESCRIPTIONS": [
+      "If your #y${modID}:Soul_Heat is #b",
+      " or higher when you trigger #y${modID}:Extinguish, draw #b",
+      " card",
+      "s",
+      "."
+    ]
   }
 }

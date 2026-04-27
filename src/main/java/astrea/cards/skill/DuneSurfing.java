@@ -43,6 +43,8 @@ public class DuneSurfing extends AbstractAstreaCard {
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
 
+        setSelfRetain(false, true);
+
         verifyBackground();
     }
 

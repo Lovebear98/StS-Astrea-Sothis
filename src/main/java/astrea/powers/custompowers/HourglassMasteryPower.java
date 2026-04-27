@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static astrea.AstreaMod.makeID;
+import static astrea.util.CustomTags.Suspend;
+import static astrea.util.CustomTags.Timeless;
 import static astrea.util.managers.SoundManager.PlaySound;
 import static astrea.util.managers.SoundManager.SANDSOFTIMETRIGGERKEY;
 
@@ -50,7 +52,7 @@ public class HourglassMasteryPower extends BasePower implements CloneablePowerIn
         if(Locked){
             Locked = false;
         }else{
-            if(!(card.type == AbstractCard.CardType.POWER) && !card.purgeOnUse && !action.exhaustCard && !action.reboundCard && !action.returnToHand && !card.isInAutoplay){
+            if(!(card.type == AbstractCard.CardType.POWER) && !card.purgeOnUse && !action.exhaustCard && !action.reboundCard && !action.returnToHand && !card.isInAutoplay && !card.hasTag(Suspend) && !card.hasTag(Timeless)){
                 flash();
                 PlaySound(SANDSOFTIMETRIGGERKEY);
                 boolean originalReturnToHand = card.returnToHand;

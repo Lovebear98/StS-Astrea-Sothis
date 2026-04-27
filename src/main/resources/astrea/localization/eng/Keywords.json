@@ -64,5 +64,34 @@
       "afflicts"
     ],
     "DESCRIPTION": "Take #bX damage. If you have enough #yRelief, reduce it to prevent the damage."
+  },
+  {
+    "ID" : "Suspend",
+    "PROPER_NAME": "Suspend",
+    "NAMES": [
+      "Suspend",
+      "suspend",
+      "suspended",
+      "suspending"
+    ],
+    "DESCRIPTION": "#ySuspended cards are added to the discard pile at the end of the turn."
+  },
+  {
+    "ID" : "Chanting",
+    "PROPER_NAME": "Chanting",
+    "NAMES": [
+      "Chanting",
+      "chanting"
+    ],
+    "DESCRIPTION": "The damage of #yChanting #yAttacks increases until you play a #yNon-Chanting #yAttack."
+  },
+  {
+    "ID" : "Timeless",
+    "PROPER_NAME": "Timeless",
+    "NAMES": [
+      "Timeless",
+      "timeless"
+    ],
+    "DESCRIPTION": "This card doesn't trigger #yHourglass #yMastery."
   }
 ]

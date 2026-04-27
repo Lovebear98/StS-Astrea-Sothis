@@ -1,18 +1,21 @@
 package astrea.cards.attack;
 
 import astrea.cards.AbstractAstreaCard;
-import astrea.cards.generated.Mechanics.Dagger;
 import astrea.character.SothisCharacter;
 import astrea.util.CardStats;
+import astrea.util.CustomActions.DrawRiskyFollowupAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static astrea.patches.visual.AttackEffectEnum.PURIFY;
+import static astrea.util.CustomTags.Suspend;
 
 
 public class GlassDaggers extends AbstractAstreaCard {
@@ -24,10 +27,10 @@ public class GlassDaggers extends AbstractAstreaCard {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 2;
     private static final int BLOCK = 0;
     private static final int UPG_BLOCK = 0;
@@ -44,21 +47,15 @@ public class GlassDaggers extends AbstractAstreaCard {
         setMagic(MAGIC, UPG_MAGIC);
         setSecondMagic(SECOND_MAGIC, UPG_SECOND_MAGIC);
 
-        this.cardsToPreview = new Dagger();
-        this.UpgradePreviewCard = false;
-
         verifyBackground();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), PURIFY));
-        addToBot(new MakeTempCardInHandAction(cardsToPreview.makeStatEquivalentCopy(), magicNumber));
-    }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), PURIFY));
 
-
-    private String GetExtraString() {
-        return cardStrings.EXTENDED_DESCRIPTION[0];
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
     }
 
 

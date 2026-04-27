@@ -1,0 +1,56 @@
+package astrea.powers.custompowers;
+
+import astrea.powers.BasePower;
+import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static astrea.AstreaMod.makeID;
+
+public class AscendPower extends BasePower implements CloneablePowerInterface {
+    public static final String POWER_ID = makeID(AscendPower.class.getSimpleName());
+
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static final PowerType TYPE = PowerType.BUFF;
+    private static final boolean TURN_BASED = false;
+
+
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if(card.costForTurn >= 2 || (card.cost == -1 && card.energyOnUse >= 2)){
+            this.flash();
+            addToTop(new ReducePowerAction(owner, owner, this, 1));
+        }
+        super.onUseCard(card, action);
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    }
+
+    public AscendPower(AbstractCreature owner, int amount){
+        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    }
+
+
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new AscendPower(owner, amount);
+    }
+
+
+}

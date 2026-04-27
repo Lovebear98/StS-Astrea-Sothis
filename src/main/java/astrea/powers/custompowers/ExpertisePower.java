@@ -1,0 +1,46 @@
+package astrea.powers.custompowers;
+
+import astrea.powers.BasePower;
+import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static astrea.AstreaMod.makeID;
+import static astrea.util.managers.Wiz.p;
+
+public class ExpertisePower extends BasePower implements CloneablePowerInterface {
+    public static final String POWER_ID = makeID(ExpertisePower.class.getSimpleName());
+
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static final PowerType TYPE = PowerType.BUFF;
+    private static final boolean TURN_BASED = false;
+
+
+    public ExpertisePower(AbstractCreature owner, int amount){
+        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    }
+
+
+    public void updateDescription() {
+        String s = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+        if(amount != 1){
+            s += DESCRIPTIONS[2];
+        }
+        s += DESCRIPTIONS[3];
+        this.description = s;
+    }
+
+    @Override
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
+        addToBot(new ApplyPowerAction(p(), p(), new DistortionHieroglyphPower(p(), amount)));
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new ExpertisePower(owner, amount);
+    }
+}

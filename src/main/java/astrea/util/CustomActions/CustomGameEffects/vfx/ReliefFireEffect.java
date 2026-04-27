@@ -69,6 +69,7 @@ public class ReliefFireEffect extends AbstractGameEffect {
         sb.setColor(this.color);// 75
         sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, (float)this.img.packedHeight / 2.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);// 76
         sb.setBlendFunction(770, 771);// 87
+        sb.setColor(Color.WHITE.cpy());
     }// 88
 
     public void dispose() {

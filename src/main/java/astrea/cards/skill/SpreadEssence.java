@@ -4,7 +4,7 @@ import astrea.cards.AbstractAstreaCard;
 import astrea.character.SothisCharacter;
 import astrea.powers.custompowers.ReliefPower;
 import astrea.util.CardStats;
-import com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting;
+import astrea.util.targeting.SothisSelfOrEnemyTargeting;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static astrea.util.managers.Wiz.p;
-import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.SELF_OR_ENEMY;
+import static astrea.util.targeting.SothisSelfOrEnemyTargeting.RELIEF_TARGET;
 
 
 public class SpreadEssence extends AbstractAstreaCard {
@@ -25,8 +25,8 @@ public class SpreadEssence extends AbstractAstreaCard {
     private static final CardStats info = new CardStats(
             SothisCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.RARE,
-            SELF_OR_ENEMY,
+            CardRarity.UNCOMMON,
+            RELIEF_TARGET,
             1
     );
 
@@ -55,7 +55,7 @@ public class SpreadEssence extends AbstractAstreaCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
+        AbstractCreature target = SothisSelfOrEnemyTargeting.getTarget(this);
         if (target == null){
             target = p();
         }

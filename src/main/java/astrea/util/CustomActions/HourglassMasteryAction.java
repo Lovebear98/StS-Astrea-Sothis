@@ -1,5 +1,7 @@
 package astrea.util.CustomActions;
 
+import astrea.cardsmods.ReduceXCostMod;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
@@ -17,7 +19,11 @@ public class HourglassMasteryAction extends AbstractGameAction {
     @Override
     public void update() {
         FlashCard(card);
-        card.setCostForTurn(Math.max(0, card.costForTurn - 1));
+        if(card.costForTurn == -1){
+            CardModifierManager.addModifier(card, new ReduceXCostMod());
+        }else{
+            card.setCostForTurn(Math.max(0, card.costForTurn - 1));
+        }
         card.returnToHand = Return;
         isDone = true;
     }

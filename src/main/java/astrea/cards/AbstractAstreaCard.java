@@ -1,6 +1,7 @@
 package astrea.cards;
 
 import astrea.util.CardStats;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +12,9 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import static astrea.util.managers.Wiz.p;
 
 public abstract class AbstractAstreaCard extends BaseCard{
+
+    protected static final Color RED_BORDER_GLOW_COLOR = Color.RED.cpy();
+
 
     ///The base magic number
     public int baseSecondMagic;
@@ -215,5 +219,7 @@ public abstract class AbstractAstreaCard extends BaseCard{
     }
 
 
-
+    public static Color exposeGlowCOlor(){
+        return GOLD_BORDER_GLOW_COLOR.cpy();
+    }
 }

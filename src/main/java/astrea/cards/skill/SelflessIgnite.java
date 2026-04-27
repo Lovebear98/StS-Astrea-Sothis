@@ -6,7 +6,7 @@ import astrea.util.CardStats;
 import astrea.util.CustomActions.AfflictAction;
 import astrea.util.CustomActions.TriggerReliefAction;
 import astrea.util.CustomActions.generic.DelayAction;
-import com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting;
+import astrea.util.targeting.SothisSelfOrEnemyTargeting;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static astrea.util.managers.Wiz.p;
-import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.SELF_OR_ENEMY;
+import static astrea.util.targeting.SothisSelfOrEnemyTargeting.RELIEF_TARGET;
 
 
 public class SelflessIgnite extends AbstractAstreaCard {
@@ -25,7 +25,7 @@ public class SelflessIgnite extends AbstractAstreaCard {
             SothisCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.RARE,
-            SELF_OR_ENEMY,
+            RELIEF_TARGET,
             0
     );
 
@@ -35,8 +35,8 @@ public class SelflessIgnite extends AbstractAstreaCard {
     private static final int UPG_BLOCK = 0;
     private static final int MAGIC = 0;
     private static final int UPG_MAGIC = 0;
-    private static final int SECOND_MAGIC = 10;
-    private static final int UPG_SECOND_MAGIC = -3;
+    private static final int SECOND_MAGIC = 6;
+    private static final int UPG_SECOND_MAGIC = 0;
 
     public SelflessIgnite() {
         super(ID, info);
@@ -51,12 +51,15 @@ public class SelflessIgnite extends AbstractAstreaCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
+        AbstractCreature target = SothisSelfOrEnemyTargeting.getTarget(this);
         if (target == null){
             target = p();
         }
         addToBot(new TriggerReliefAction(target, true));
-        addToBot(new DelayAction(new AfflictAction(secondMagic)));
+
+        if(!upgraded){
+            addToBot(new DelayAction(new AfflictAction(secondMagic)));
+        }
     }
 
 

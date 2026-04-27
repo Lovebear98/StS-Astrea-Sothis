@@ -2,7 +2,7 @@
   "${modID}:HourglassMasteryPower": {
     "NAME": "Hourglass Mastery",
     "DESCRIPTIONS": [
-      "The next card you play returns to your hand and costs #b1 less this turn."
+      "The next card you play returns to your hand and costs #b1 less this turn instead of being discarded."
     ]
   },
   "${modID}:ReliefPower": {
@@ -25,10 +25,10 @@
   "${modID}:DistortionHieroglyphPower": {
     "NAME": "Distortion Hieroglyph",
     "DESCRIPTIONS": [
-      "Your #ySoul #yHeat will be treated as #pexactly #p10 #b",
+      "#b",
       " time",
       "s",
-      " this turn."
+      " this turn, your #ySoul #yHeat will be treated as #pexactly #p10 ."
     ]
   },
   "${modID}:FlammableChakramPower": {
@@ -48,14 +48,8 @@
   "${modID}:FireBreathPower": {
     "NAME": "Fire Breath",
     "DESCRIPTIONS": [
-      "While #ySoul #yHeat is #b10 or higher, increases Attack damage by #b",
+      "While #ySoul #yHeat is at least #b10, increases Attack damage by #b",
       "."
-    ]
-  },
-  "${modID}:RegalKhephreshPower": {
-    "NAME": "Regal Khephresh",
-    "DESCRIPTIONS": [
-      "#yRelief on enemies now triggers at the start of their turn."
     ]
   },
   "${modID}:SandsOfTimePower": {
@@ -74,6 +68,75 @@
       " times",
       "s",
       " your #ySoul #yHeat would reset or be #yExtinguished."
+    ]
+  },
+  "${modID}:ChantingPower": {
+    "NAME": "Chanting",
+    "DESCRIPTIONS": [
+      "Increase the power of #yChanting Attacks by #b",
+      " until you play a #yNon-Chanting Attack."
+    ]
+  },
+  "${modID}:QuicksandDancePower": {
+    "NAME": "Quicksand Dance",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yChanting."
+    ]
+  },
+  "${modID}:AreaReliefPower": {
+    "NAME": "Area Relief",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yRelief to an enemy, gain #b",
+      " #yRelief."
+    ]
+  },
+  "${modID}:PrecisionMantraPower": {
+    "NAME": "Precision Mantra",
+    "DESCRIPTIONS": [
+      "#yRelief isn't reduced when triggered for #b",
+      " turn",
+      "s",
+      "."
+    ]
+  },
+  "${modID}:ExpertisePower": {
+    "NAME": "Expertise",
+    "DESCRIPTIONS": [
+      " #b",
+      " time",
+      "s",
+      " ach turn, your #ySoul #yHeat will be treated as #pexactly #p10."
+    ]
+  },
+  "${modID}:AreaBarrierPower": {
+    "NAME": "Area Barrier",
+    "DESCRIPTIONS": [
+      "When receiving Attack damage, apply #b",
+      " #yRelief back."
+    ]
+  },
+  "${modID}:EclipseGazePower": {
+    "NAME": "Eclipse Gaze",
+    "DESCRIPTIONS": [
+      "When you play a card that costs #b2 or more, EVERYONE gains #b",
+      " #yRelief."
+    ]
+  },
+  "${modID}:BrightEnhancementPower": {
+    "NAME": "Bright Enhancement",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " time",
+      "s",
+      " #yRelief is triggered, it won't be reduced."
+    ]
+  },
+  "${modID}:AscendPower": {
+    "NAME": "Ascend",
+    "DESCRIPTIONS": [
+      "Your next #b",
+      " cards that cost #b2 or more are free."
     ]
   }
 }

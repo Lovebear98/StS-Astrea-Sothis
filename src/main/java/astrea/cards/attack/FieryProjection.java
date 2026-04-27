@@ -3,8 +3,8 @@ package astrea.cards.attack;
 import astrea.cards.AbstractAstreaCard;
 import astrea.character.SothisCharacter;
 import astrea.util.CardStats;
+import astrea.util.CustomActions.FieryProjectionAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -53,7 +53,7 @@ public class FieryProjection extends AbstractAstreaCard {
         if(m == null){
             m = AbstractDungeon.getRandomMonster();
         }
-        addToBot(new PlayTopCardAction(m, false));
+        addToBot(new FieryProjectionAction(m, true));
     }
 
 
